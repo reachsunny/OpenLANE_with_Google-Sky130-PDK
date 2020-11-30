@@ -40,7 +40,7 @@ A good disk-space to start with would be ~40G with 4GB RAM. Additional space and
 
 # Design Prep
 If you are using the VM, then you need to setup PDK_ROOT and docker before invoking the OpenLANE flow as your branch version and local path.
-<pre>export PDK_ROOT=&apos;<absolute-path-to-your-pdks>&apos;
+<pre>export PDK_ROOT=&apos;absolute-path-to-your-pdks&apos;
 alias docker=&apos;docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) openlane:rc2&apos;
 
 </pre>
