@@ -173,6 +173,14 @@ Here are example of calculating the rise and fall propagation delay for our inve
 
 ### LEF generation from magic layout**
 
+LEF can be directly generated from the Magic layout tool using *write lef* and this lef can be used to integrate this custom invertor cell into our design.
+
+![inv-lef](/Images/inv-LEF-generation.PNG "inv-lef")
+
+
+
+
+
 
 
 
