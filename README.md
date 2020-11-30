@@ -1,11 +1,17 @@
 # OpenLANE_with_Google-Sky130-PDK
-Opensource RTL2GDS flows
 
-OpenLANE is an automated RTL2GDS flows that incorporates multiple open source tools to perform ASIC design activities. Some of the tools uses are as following 
-
+**Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flows**
 
 
-Useful git-repos
+OpenLANE is an automated RTL2GDS flows that incorporates multiple open source tools to perform ASIC design activities. Tools used in the OpenLANE flows are listed below:
+
+![tools](/Images/OpenLane_tools.PNG "OpenLANE-tools")
+
+**Overall RTL2GDS OpenLane Flow**
+
+![Flow](/Images/openlane.flow.1.png "OpenLANE-flow")
+
+Useful git-repos:
 
 https://github.com/efabless/openlane
 
