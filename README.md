@@ -11,7 +11,7 @@ OpenLANE is an automated RTL2GDS flows that incorporates multiple open source to
 
 ![Flow](/Images/openlane.flow.1.png "OpenLANE-flow")
 
-Useful git-repos:
+### Useful git-repos
 
 https://github.com/efabless/openlane
 
@@ -22,7 +22,7 @@ https://github.com/kunalg123/vsdflow
 https://github.com/nickson-jose/openlane_build_script
 
 
-## H2 Setting up Virtual Machine and OpenLANE flows
+#  Setting up Virtual Machine and OpenLANE flows
 A good disk-space to start with would be ~40G with 4GB RAM. Additional space and memory should be alloted based on your project needs
 
 *  To setup VM on your local machine [Setting up VirtualBox](https://www.youtube.com/watch?v=x5MhydijWmc)
