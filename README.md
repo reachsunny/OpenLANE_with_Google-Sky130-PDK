@@ -57,6 +57,15 @@ Once completed, it will report out the design statistics. Here is an example for
 
 ![Synthesis](/Images/synth-stats.png)
 
+You can do some simple analysis on the design:
+
+Flop Ratio   = Number of Flops / Total number of cells
+
+Buffer Ratio = Total number of buffers / Total number of cells
+
+Chip Design Area , Timing reports etc.
+
+
 
 
 
