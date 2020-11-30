@@ -25,7 +25,7 @@
    * [Parasitic extraction & spice deck](#extraction-with-magic)
    * [Lib cell characteristics](#cell-characterization)
    * [LEF generation](#lef-generation-from-magic-layout)
-   
+9. [Clock Tree Synthesis](#clock-tree-synthesis-cts) 
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -176,6 +176,96 @@ Here are example of calculating the rise and fall propagation delay for our inve
 LEF can be directly generated from the Magic layout tool using *write lef* and this lef can be used to integrate this custom invertor cell into our design.
 
 ![inv-lef](/Images/inv-LEF-generation.PNG "inv-lef")
+
+### Integrate custom lib cell in our design
+
+Copy the LEF file for our custom cell and the lib files into our design src area:
+
+<pre>cp sky130_inv.lef /home/sunny/Desktop/OS-RTL2GDS/vsdflow/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/</pre>
+
+<pre>cp sky130_fd_sc_hd__* /home/sunny/Desktop/OS-RTL2GDS/vsdflow/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+</pre>
+
+Now we should have the following files in your design/picorv32a/src area
+<pre><font color="#4E9A06"><b>sunny@sunny-VirtualBox</b></font>:<font color="#3465A4"><b>~/Desktop/OS-RTL2GDS/vsdflow/work/tools/openlane_working_dir/openlane/designs/picorv32a/src</b></font>$ 
+picorv32a.sdc
+picorv32a.v
+sky130_fd_sc_hd__fast.lib
+sky130_fd_sc_hd__slow.lib
+sky130_fd_sc_hd__typical.lib
+sky130_inv.lef
+</pre>
+
+Update the design/picorv32a/config.tcl file to include the LIBS and LEFs
+<pre>#Sunny Added the following to include the custom designed invertor cell
+set ::env(LIB_SYNTH) &quot;$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib&quot;
+set ::env(LIB_SYNTH) &quot;$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib&quot;
+set ::env(LIB_SYNTH) &quot;$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib&quot;
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/picorv32a/src/*.lef]
+###########
+
+</pre>
+
+**Include the lefs after the prep stage:**
+
+<pre>bash-4.1$ ./flow.tcl -interactive
+<font color="#06989A">[INFO]: </font>
+<font color="#06989A">      ___   ____   ___  ____   _       ____  ____     ___</font>
+<font color="#06989A">     /   \ |    \ /  _]|    \ | |     /    ||    \   /  _]</font>
+<font color="#06989A">    |     ||  o  )  [_ |  _  || |    |  o  ||  _  | /  [_</font>
+<font color="#06989A">    |  O  ||   _/    _]|  |  || |___ |     ||  |  ||    _]</font>
+<font color="#06989A">    |     ||  | |   [_ |  |  ||     ||  _  ||  |  ||   [_</font>
+<font color="#06989A">     \___/ |__| |_____||__|__||_____||__|__||__|__||_____|</font>
+
+
+<font color="#06989A">[INFO]: Version: rc2</font>
+<font color="#D3D7CF">% package require openlane 0.9</font>
+<font color="#D3D7CF">0.9</font>
+<font color="#D3D7CF">% prep -design picorv32a -tag custom_inv </font>
+<font color="#06989A">[INFO]: Using design configuration at /openLANE_flow/designs/picorv32a/config.tcl</font>
+<font color="#D3D7CF">mergeLef.py : Merging LEFs</font>
+<font color="#D3D7CF">sky130_fd_sc_hd.lef: SITEs matched found: 0</font>
+<font color="#D3D7CF">sky130_fd_sc_hd.lef: MACROs matched found: 437</font>
+<font color="#D3D7CF">mergeLef.py : Merging LEFs complete</font>
+<font color="#D3D7CF">padLefMacro.py : Padding technology lef file</font>
+<font color="#D3D7CF">Derived SITE width (microns): 0.46</font>
+<font color="#D3D7CF">Derived SITE height (microns): 5.44</font>
+<font color="#D3D7CF">Right cell padding (microns): 3.68</font>
+<font color="#D3D7CF">Left cell padding (microns): 0.0</font>
+<font color="#D3D7CF">Top cell padding (microns): 0.0</font>
+<font color="#D3D7CF">Bottom cell padding (microns): 0.0</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__tapvgnd_1</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__tap_1</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__tapvgnd2_1</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__decap_3</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__decap_4</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__tapvpwrvgnd_1</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__decap_12</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__fill_1</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__fill_4</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__decap_8</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__fill_2</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__decap_6</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__fill_8</font>
+<font color="#D3D7CF">Skipping LEF padding for MACRO  sky130_fd_sc_hd__tap_2</font>
+<font color="#D3D7CF">padLefMacro.py : Finished</font>
+<font color="#06989A">[INFO]: Preparation complete</font>
+<font color="#D3D7CF">% set lefs [glob $::env(DESIGN_DIR)/src/*.lef]</font>
+<font color="#D3D7CF">/openLANE_flow/designs/picorv32a/src/sky130_inv.lef</font>
+<font color="#D3D7CF">% add_lefs -src $lefs</font>
+<font color="#06989A">[INFO]: Merging /openLANE_flow/designs/picorv32a/src/sky130_inv.lef</font>
+</pre>
+
+Now, reruning the synthesis and placement, we should be able to see our custom designed invertor cell
+
+# Clock tree synthesis CTS
+
+So far we have been using ideal clocks in our design. After a legalized placed design, we can perform clock-tree-synthesis. Main function of CTS will be to minimize clock-skew and clock-propagation (latency) delays for the design. After CTS, new clock buffers will be inserted into the design and new def will be created.
+
+To run CTS use: *run_cts* command 
+
+
+
 
 
 
