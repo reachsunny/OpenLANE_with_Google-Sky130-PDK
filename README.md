@@ -22,5 +22,11 @@ https://github.com/kunalg123/vsdflow
 https://github.com/nickson-jose/openlane_build_script
 
 
+## H2 Setting up Virtual Machine and OpenLANE flows
+A good disk-space to start with would be ~40G with 4GB RAM. Additional space and memory should be alloted based on your project needs
+
+*  To setup VM on your local machine [Setting up VirtualBox](https://www.youtube.com/watch?v=x5MhydijWmc)
+*  To setup OpenLANE flows [Installing OpenLANE flow](https://www.udemy.com/course/vsd-a-complete-guide-to-install-openlane-and-sky130nm-pdk/learn/lecture/21989274#overview)
+
 
 
