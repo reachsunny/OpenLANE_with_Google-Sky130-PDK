@@ -21,6 +21,11 @@
 6. [Floorplan](#floorplanning)
 7. [Placement](#placement)
 8. [Design Library Cell](#design-library-cell)
+   * [View in magic layout](#design-library-cell)  
+   * [Parasitic extraction & spice deck](#extraction-with-magic)
+   * [Lib cell characteristics](#cell-characterization)
+   * [LEF generation](#lef-generation-from-magic-layout)
+   
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -135,7 +140,7 @@ To invoke the layout of designed invertor in Magic: Use relative paths to the .t
 ![Invertor](/Images/sky130A-inv-design.PNG "Invertor")
 
 
-**Extraction with Magic**
+### Extraction with Magic**
 
 Before extracting and dumping the spice files, ensure there are no DRC errors in the layout.
 
@@ -149,6 +154,8 @@ Once the spice file is dumped from the magic layout. We can now edit the spice f
 Check the Voltages and capacitance values, once satisfactory 
 
 we can now plot the **waveform {output(y) vs time with sweeping input(a)}** as shown below. With the plots, we can now identify library cell output characteristics. Some of the important stdcell parameters are:
+
+### Cell Characterization
 
 1. Transition time (rise and fall) usually measured 20% - 80%
 2. Propagation delay (rise and fall) usually measured at 50% ouput to input
@@ -164,6 +171,7 @@ Here are example of calculating the rise and fall propagation delay for our inve
 ![inv-rise-dly](/Images/inv-rise-prop-dly.PNG "inv-rise-dly")
 ![inv-fall-dly](/Images/inv_fall_prop-dly.PNG "inv-fall-dly")
 
+### LEF generation from magic layout**
 
 
 
