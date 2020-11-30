@@ -142,6 +142,23 @@ Before extracting and dumping the spice files, ensure there are no DRC errors in
 ![Invertor-Parasitic-Extraction](/Images/extraction_from_magic_layout1.PNG "inv-pext from magic")
 
 
+Once the spice file is dumped from the magic layout. We can now edit the spice file to incorporate spice commands for transient analysis. See the highlighted sections.
+
+![Spice-deck-updates](/Images/inv-ngspice-read_spice-deck.PNG "Spice-deck-updates")
+
+Check the Voltages and capacitance values, once satisfactory 
+
+we can now plot the **waveform {output(y) vs time with sweeping input(a)}** as shown below. With the plots, we can now identify library cell output characteristics. Some of the important stdcell parameters are:
+
+1. Transition time (rise and fall) usually measured 20% - 80%
+2. Propagation delay (rise and fall) usually measured at 50% ouput to input
+
+![spice-plot-sweep](/Images/inv-spice-plot.PNG  "Spice-plot-sweep")
+
+
+
+
+
 
 
 
