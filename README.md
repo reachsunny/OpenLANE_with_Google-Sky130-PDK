@@ -258,9 +258,12 @@ set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/picorv32a/src/*.lef]
 
 Now, reruning the synthesis and placement, we should be able to see our custom designed invertor cell
 
-Post-placement: Viewing in Magic layout
+![custom-inv-in-synth](/Images/synth-with-custom-inv.PNG "custom-inv-in-synth")
+
+**Post-placement: Viewing in Magic layout**
 <pre>magic -T ../../../pdks/sky130A/libs.tech/magic/sky130A.tech lef read runs/custom_inv/tmp/merged.lef def read runs/custom_inv/results/placement/picorv32a.placement.def &amp;</pre>
 
+![custom-inv-in-magic](/Images/custom-inv-in-magic.PNG "custom-inv-in-magic")
 
 
 # Clock tree synthesis CTS
