@@ -80,7 +80,7 @@ Here the default values for **FP_IO_VMETAL and FP_IO_HMETAL** has been changed t
 
 ![FP-config-vars](/Images/FP-var_settings.png "FP-vars")
 
-Also the **FP_IO_MODE is 1** that means all the IO pins will be placed randomly, but at an equidistant.
+Also the **FP_IO_MODE is 1** that means all the IO pins even though placed randomly, but will be at an equidistant.
 
 ![FP-magic](/Images/FP-magic-view1.png "Floorplan magic layout view")
 
