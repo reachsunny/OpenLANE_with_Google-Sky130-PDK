@@ -87,6 +87,10 @@ Also the **FP_IO_MODE is 1** that means all the IO pins even though placed rando
 
 ![FP-IO-place](/Images/FP-magic-view2.png "IO-Placement")
 
+Another important factor during floorplanning is the design ASPECT RATIO = Height / Width
+
+
+
 # Placement
 
 Once the floorplanning stage is satisfactory, we can now legally place the standard cells on the pre-defined site-rows. This will ensure the standard-cell power will line up to the pgn network grids. OpenLANE invokes multiple tools to provide optmized legal placed design:
