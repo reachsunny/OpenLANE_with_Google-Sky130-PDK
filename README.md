@@ -135,6 +135,13 @@ To invoke the layout of designed invertor in Magic: Use relative paths to the .t
 ![Invertor](/Images/sky130A-inv-design.PNG "Invertor")
 
 
+**Extraction with Magic**
+
+Before extracting and dumping the spice files, ensure there are no DRC errors in the layout.
+
+![Invertor-Parasitic-Extraction](/Images/extraction_from_magic_layout.PNG "inv-pext from magic")
+
+
 
 
 
