@@ -1,3 +1,16 @@
+# Project
+
+## Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flow inspired by VSD Workshop
+
+**RTL2GDS flow steps with OpenLANE**
+
+**Invertor cell design using Magic**
+
+**Parasitic extraction and spice files**
+
+**Spice Simulation using ngspice**
+
+
 # Table of Contents
 
 1. [OpenLANE tools and Flows](#openlane_with_google-sky130-pdk)
@@ -9,9 +22,6 @@
 7. [Placement](#placement)
 
 # OpenLANE_with_Google-Sky130-PDK
-
-**Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flows**
-
 
 OpenLANE is an automated RTL2GDS flows that incorporates multiple open source tools to perform ASIC design activities. Tools used in the OpenLANE flows are listed below:
 
@@ -87,7 +97,10 @@ Also the **FP_IO_MODE is 1** that means all the IO pins even though placed rando
 
 ![FP-IO-place](/Images/FP-magic-view2.png "IO-Placement")
 
-Another important factor during floorplanning is the design ASPECT RATIO = Height / Width
+Another important factor during floorplanning is the design **ASPECT RATIO = Height / Width**
+
+![FP-AR](/Images/FP-AR.png "FP Aspect Ratio")
+
 
 
 
