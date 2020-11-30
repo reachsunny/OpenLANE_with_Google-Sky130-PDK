@@ -258,6 +258,11 @@ set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/picorv32a/src/*.lef]
 
 Now, reruning the synthesis and placement, we should be able to see our custom designed invertor cell
 
+Post-placement: Viewing in Magic layout
+<pre>magic -T ../../../pdks/sky130A/libs.tech/magic/sky130A.tech lef read runs/custom_inv/tmp/merged.lef def read runs/custom_inv/results/placement/picorv32a.placement.def &amp;</pre>
+
+
+
 # Clock tree synthesis CTS
 
 So far we have been using ideal clocks in our design. After a legalized placed design, we can perform clock-tree-synthesis. Main function of CTS will be to minimize clock-skew and clock-propagation (latency) delays for the design. After CTS, new clock buffers will be inserted into the design and new def will be created.
