@@ -4,6 +4,7 @@
 2. [Useful GIT_REPOS](#useful-git-repos)
 3. [Setting Up Virtual Machine](#setting-up-virtual-machine-and-openlane-flows)
 4. [Design Prep](#design-prep)
+5. [Synthesis](#Synthesis)
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -44,6 +45,20 @@ alias docker=&apos;docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROO
 
 
 ![Design Prep](/Images/OL-prep_stage.png)
+
+# Synthesis
+For Synthesis OpenLANE uses following tools
+1. yosys for RTL synthesis optmization without technology mapping
+2. ABC for doing technology mapping as per libraries provided
+3. OpenSTA for doing timing analysis
+
+Command to use: *run_synthesis*
+Once completed, it will report out the design statistics. Here is an example for design picorv32a
+
+![Synthesis](/Images/synth-stats.png)
+
+
+
 
 
 
