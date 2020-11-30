@@ -6,6 +6,7 @@
 4. [Design Prep](#design-prep)
 5. [Synthesis](#synthesis)
 6. [Floorplan](#floorplanning)
+7. [Placement](#placement)
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -85,6 +86,24 @@ Also the **FP_IO_MODE is 1** that means all the IO pins even though placed rando
 ![FP-magic](/Images/FP-magic-view1.png "Floorplan magic layout view")
 
 ![FP-IO-place](/Images/FP-magic-view2.png "IO-Placement")
+
+# Placement
+
+Once the floorplanning stage is satisfactory, we can now legally place the standard cells on the pre-defined site-rows. This will ensure the standard-cell power will line up to the pgn network grids. OpenLANE invokes multiple tools to provide optmized legal placed design:
+
+**RePlace** will perform coarse global placement
+
+**Resize** will size up cells to meet the timing, power and area targets
+
+**OpenPhySyn** will perform optimization to improve the quality of placement
+
+**OpenDP** will complete the placement process with legalized and optimized design
+
+
+Here is the snapshot of the design during floorplanning and after placement.
+
+![FP-and-Place](/Images/FP_and_Place-magic.png "FP and Place")
+
 
 
 
