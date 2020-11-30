@@ -1,3 +1,16 @@
+# Project
+
+## Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flow inspired by VSD Workshop
+
+**RTL2GDS flow steps with OpenLANE**
+
+**Invertor cell design using Magic**
+
+**Parasitic extraction and spice files**
+
+**Spice Simulation using ngspice**
+
+
 # Table of Contents
 
 1. [OpenLANE tools and Flows](#openlane_with_google-sky130-pdk)
@@ -9,9 +22,6 @@
 7. [Placement](#placement)
 
 # OpenLANE_with_Google-Sky130-PDK
-
-**Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flows**
-
 
 OpenLANE is an automated RTL2GDS flows that incorporates multiple open source tools to perform ASIC design activities. Tools used in the OpenLANE flows are listed below:
 
