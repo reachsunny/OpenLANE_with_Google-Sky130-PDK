@@ -272,6 +272,10 @@ So far we have been using ideal clocks in our design. After a legalized placed d
 
 To run CTS use: *run_cts* command 
 
+post-cts layout in magic. Note here the floorplan is with ASPECT RATIO 0.5
+
+![post-cts-layout](/Images/post-cts-layout.PNG "post-cts-layout")
+
 
 
 
