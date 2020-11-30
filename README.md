@@ -20,6 +20,7 @@
 5. [Synthesis](#synthesis)
 6. [Floorplan](#floorplanning)
 7. [Placement](#placement)
+8. [Design Library Cell](#design-library-cell)
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -122,6 +123,12 @@ Command to use: *run_placement*
 Here is the snapshot of the design after floorplanning and after placement.
 
 ![FP-and-Place](/Images/FP_and_Place-magic.png "FP and Place")
+
+# Design Library Cell
+
+[Magic](http://opencircuitdesign.com/magic/index.html) will be used as a layout tool for simple invertor design. Extracting its parasitics and writing out spice file that can be used with ngspice for simulation. The magic invertor was taken from [vsdstdcelldesign](https://github.com/nickson-jose/vsdstdcelldesign)
+
+![Invertor](/Images/sky130A-inv-design.PNG "Invertor")
 
 
 
