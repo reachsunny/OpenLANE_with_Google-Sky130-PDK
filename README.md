@@ -100,7 +100,7 @@ Once the floorplanning stage is satisfactory, we can now legally place the stand
 **OpenDP** will complete the placement process with legalized and optimized design
 
 
-Here is the snapshot of the design during floorplanning and after placement.
+Here is the snapshot of the design after floorplanning and after placement.
 
 ![FP-and-Place](/Images/FP_and_Place-magic.png "FP and Place")
 
