@@ -26,6 +26,7 @@
    * [Lib cell characteristics](#cell-characterization)
    * [LEF generation](#lef-generation-from-magic-layout)
 9. [Clock Tree Synthesis](#clock-tree-synthesis-cts) 
+   * [Timing Analysis with openroad](#timing-analysis-using-openroad)
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -276,9 +277,40 @@ post-cts layout in magic. Note here the floorplan is with ASPECT RATIO 0.5
 
 ![post-cts-layout](/Images/post-cts-layout.PNG "post-cts-layout")
 
+# Timing Analysis using openroad
+
+The base.sdc from /openlane_working_dir/openlane/scripts/base.sdc is copied to openlane/designs/picorv32a/src/my_base.sdc with the following additions
+
+</pre>
+<pre>###Sunny Add the following to my_base.sdc
+set ::env(CLOCK_PORT) clk
+set ::env(CLOCK_PERIOD) 12.000
+set ::env(SYNTH_DRIVING_CELL) sky130_fd_sc_hd__inv_8
+set ::env(SYNTH_DRIVING_PIN) Y
+set ::env(SYNTH_CAP_LOAD) 17.65
+#########
+</pre>
 
 
+**Following command can be used to invoke openroad in OpenLANE flows to do the CTS timing analysis**
 
+</pre>
+<pre><font color="#D3D7CF">% openroad</font>
+<font color="#D3D7CF">OpenROAD 0.9.0 d6e0844670</font>
+<font color="#D3D7CF">This program is licensed under the BSD-3 license. See the LICENSE file for details. </font>
+<font color="#D3D7CF">Components of the program may be licensed under more restrictive licenses which must be honored.</font>
+<font color="#D3D7CF">% </font>
+<font color="#D3D7CF"> read_lef /openLANE_flow/designs/picorv32a/runs/custom_inv/tmp/merged.lef</font>
+<font color="#D3D7CF"> read_def /openLANE_flow/designs/picorv32a/runs/custom_inv/results/cts/picorv32a.cts.def</font>
+<font color="#D3D7CF"> write_db pico_cts.db</font>
+<font color="#D3D7CF"> read_db pico_cts.db</font>
+<font color="#D3D7CF"> read_verilog /openLANE_flow//designs/picorv32a/runs/custom_inv/results/synthesis/picorv32a.synthesis_cts.v</font>
+<font color="#D3D7CF"> read_liberty -max $::env(LIB_MAX)</font>
+<font color="#D3D7CF"> read_liberty -min $::env(LIB_MIN)</font>
+<font color="#D3D7CF"> read_sdc  /openLANE_flow//designs/picorv32a/src/my_base.sdc</font>
+<font color="#D3D7CF"> set_propagated_clock [all_clocks]</font>
+<font color="#D3D7CF"> report_checks -path_delay min_max -format full_clock_expanded -digit 4</font>
+<font color="#D3D7CF">   </font></pre>
 
 
 
