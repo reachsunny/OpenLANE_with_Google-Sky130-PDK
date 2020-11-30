@@ -139,7 +139,8 @@ To invoke the layout of designed invertor in Magic: Use relative paths to the .t
 
 Before extracting and dumping the spice files, ensure there are no DRC errors in the layout.
 
-![Invertor-Parasitic-Extraction](/Images/extraction_from_magic_layout.PNG "inv-pext from magic")
+![Invertor-Parasitic-Extraction](/Images/extraction_from_magic_layout1.PNG "inv-pext from magic")
+
 
 
 
