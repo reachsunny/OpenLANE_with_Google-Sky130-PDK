@@ -128,6 +128,10 @@ Here is the snapshot of the design after floorplanning and after placement.
 
 [Magic](http://opencircuitdesign.com/magic/index.html) will be used as a layout tool for simple invertor design. Extracting its parasitics and writing out spice file that can be used with ngspice for simulation. The magic invertor was taken from [vsdstdcelldesign](https://github.com/nickson-jose/vsdstdcelldesign)
 
+To invoke the layout of designed invertor in Magic: Use relative paths to the .tech and .mag files.
+
+<pre>magic -T sky130A.tech sky130_inv.mag &amp;</pre>
+
 ![Invertor](/Images/sky130A-inv-design.PNG "Invertor")
 
 
