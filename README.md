@@ -158,7 +158,8 @@ we can now plot the **waveform {output(y) vs time with sweeping input(a)}** as s
 Here are example of calculating the rise and fall propagation delay for our invertor.
 
 **Rise prop dly = @50% (out rise time -input fall time)**
-**Fall prp dly = @50% (out fall time - in rise time)**
+
+**Fall prop dly = @50% (out fall time - in rise time)**
 
 ![inv-rise-dly](/Images/inv-rise-prop-dly.PNG "inv-rise-dly")
 ![inv-fall-dly](/Images/inv_fall_prop-dly.PNG "inv-fall-dly")
