@@ -1,3 +1,9 @@
+# Table of Contents
+
+1. [OpenLANE tools and Flows](#openlane_with_google-sky130-pdk)
+2. [Useful GIT_REPOS](#useful-git-repos)
+3. [Setting Up Virtual Machine](#setting-up-virtual-machine-and-openlane-flows)
+
 # OpenLANE_with_Google-Sky130-PDK
 
 **Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flows**
