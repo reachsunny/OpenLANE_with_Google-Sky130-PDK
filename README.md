@@ -89,6 +89,9 @@ Also the **FP_IO_MODE is 1** that means all the IO pins even though placed rando
 
 Another important factor during floorplanning is the design ASPECT RATIO = Height / Width
 
+![FP-AR](/Images/FP-AR.png "FP Aspect Ratio")
+
+
 
 
 # Placement
