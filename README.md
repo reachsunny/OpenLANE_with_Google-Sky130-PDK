@@ -308,15 +308,47 @@ set ::env(SYNTH_CAP_LOAD) 17.65
 <font color="#D3D7CF"> read_liberty -max $::env(LIB_MAX)</font>
 <font color="#D3D7CF"> read_liberty -min $::env(LIB_MIN)</font>
 <font color="#D3D7CF"> read_sdc  /openLANE_flow//designs/picorv32a/src/my_base.sdc</font>
+<font color="#D3D7CF">% read_sdc  /openLANE_flow//designs/picorv32a/src/my_base.sdc</font>
+<font color="#D3D7CF">[INFO]: Setting output delay to: 2.4000000000000004</font>
+<font color="#D3D7CF">[INFO]: Setting input delay to: 2.4000000000000004</font>
+<font color="#D3D7CF">[INFO]: Setting load to: 0.01765</font>
 <font color="#D3D7CF"> set_propagated_clock [all_clocks]</font>
-<font color="#D3D7CF"> report_checks -path_delay min_max -format full_clock_expanded -digit 4</font>
 <font color="#D3D7CF">   </font></pre>
 
 
+<pre>
+<font color="#D3D7CF"> % report_checks -path_delay min_max -format full_clock_expanded -digit 4</font>
 
+<font color="#D3D7CF"> 0.1114    9.5479 v _23797_/X (sky130_fd_sc_hd__and3_4)</font>
+<font color="#D3D7CF">   0.0000    9.5479 v _31689_/D (sky130_fd_sc_hd__dfxtp_4)</font>
+<font color="#D3D7CF">             9.5479   data arrival time</font>
 
+<font color="#D3D7CF">  12.0000   12.0000   clock vclk (rise edge)</font>
+<font color="#D3D7CF">   0.0000   12.0000   clock source latency</font>
+<font color="#D3D7CF">   0.0154   12.0154 ^ clk (in)</font>
+<font color="#D3D7CF">   0.1814   12.1969 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)</font>
+<font color="#D3D7CF">   0.1308   12.3276 ^ clkbuf_1_0_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1380   12.4657 ^ clkbuf_1_0_1_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1666   12.6323 ^ clkbuf_1_0_2_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1542   12.7864 ^ clkbuf_2_1_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1667   12.9531 ^ clkbuf_2_1_1_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1542   13.1073 ^ clkbuf_3_2_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1667   13.2740 ^ clkbuf_3_2_1_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1828   13.4568 ^ clkbuf_4_4_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1828   13.6396 ^ clkbuf_5_9_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1828   13.8225 ^ clkbuf_6_19_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.4874   14.3098 ^ clkbuf_7_39_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.0000   14.3098 ^ _31689_/CLK (sky130_fd_sc_hd__dfxtp_4)</font>
+<font color="#D3D7CF">   0.6075   14.9174   clock reconvergence pessimism</font>
+<font color="#D3D7CF">  -0.0258   14.8916   library setup time</font>
+<font color="#D3D7CF">            14.8916   data required time</font>
+<font color="#D3D7CF">-------------------------------------------------------------</font>
+<font color="#D3D7CF">            14.8916   data required time</font>
+<font color="#D3D7CF">            -9.5479   data arrival time</font>
+<font color="#D3D7CF">-------------------------------------------------------------</font>
+<font color="#D3D7CF">             5.3437   slack (MET)</font>
 
-
+</pre>
 
 
 
