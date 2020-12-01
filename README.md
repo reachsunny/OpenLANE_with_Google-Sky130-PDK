@@ -28,7 +28,7 @@
 9. [Clock Tree Synthesis](#clock-tree-synthesis-cts) 
    * [Timing Analysis with openroad](#timing-analysis-using-openroad)
 10. [Power Distribution Network](#power-distribution-network)
-
+11. [Routing](#routing)
 
 
 # OpenLANE_with_Google-Sky130-PDK
@@ -401,6 +401,16 @@ After the PDN step, the def file will change to **pdn.def**
 <pre><font color="#D3D7CF">% echo $::env(CURRENT_DEF)</font>
 <font color="#D3D7CF">/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
 </pre>
+
+# Routing
+
+OpenLANE uses TritonRoute for doing the routing. There are 2 main ROUTING_STRATEGY that invokes different routing engine. 
+
+ROUTING_STRATEGY (0 to 3) uses Triton-13 engine (faster runtime)
+
+ROUTING_STRATEGY (14) uses Triton-14 engine (better DRCs, but more runtime)
+
+To run routing in OpenLANE use command: *run_route*
 
 
 
