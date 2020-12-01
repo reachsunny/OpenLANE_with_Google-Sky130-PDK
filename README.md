@@ -27,6 +27,9 @@
    * [LEF generation](#lef-generation-from-magic-layout)
 9. [Clock Tree Synthesis](#clock-tree-synthesis-cts) 
    * [Timing Analysis with openroad](#timing-analysis-using-openroad)
+10. [Power Distribution Network](#power-distribution-network)
+11. [Routing](#routing)
+
 
 # OpenLANE_with_Google-Sky130-PDK
 
@@ -308,32 +311,114 @@ set ::env(SYNTH_CAP_LOAD) 17.65
 <font color="#D3D7CF"> read_liberty -max $::env(LIB_MAX)</font>
 <font color="#D3D7CF"> read_liberty -min $::env(LIB_MIN)</font>
 <font color="#D3D7CF"> read_sdc  /openLANE_flow//designs/picorv32a/src/my_base.sdc</font>
+<font color="#D3D7CF">% read_sdc  /openLANE_flow//designs/picorv32a/src/my_base.sdc</font>
+<font color="#D3D7CF">[INFO]: Setting output delay to: 2.4000000000000004</font>
+<font color="#D3D7CF">[INFO]: Setting input delay to: 2.4000000000000004</font>
+<font color="#D3D7CF">[INFO]: Setting load to: 0.01765</font>
 <font color="#D3D7CF"> set_propagated_clock [all_clocks]</font>
-<font color="#D3D7CF"> report_checks -path_delay min_max -format full_clock_expanded -digit 4</font>
 <font color="#D3D7CF">   </font></pre>
 
 
+<pre>
+<font color="#D3D7CF"> % report_checks -path_delay min_max -format full_clock_expanded -digit 4</font>
+
+<font color="#D3D7CF"> 0.1114    9.5479 v _23797_/X (sky130_fd_sc_hd__and3_4)</font>
+<font color="#D3D7CF">   0.0000    9.5479 v _31689_/D (sky130_fd_sc_hd__dfxtp_4)</font>
+<font color="#D3D7CF">             9.5479   data arrival time</font>
+
+<font color="#D3D7CF">  12.0000   12.0000   clock vclk (rise edge)</font>
+<font color="#D3D7CF">   0.0000   12.0000   clock source latency</font>
+<font color="#D3D7CF">   0.0154   12.0154 ^ clk (in)</font>
+<font color="#D3D7CF">   0.1814   12.1969 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)</font>
+<font color="#D3D7CF">   0.1308   12.3276 ^ clkbuf_1_0_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1380   12.4657 ^ clkbuf_1_0_1_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1666   12.6323 ^ clkbuf_1_0_2_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1542   12.7864 ^ clkbuf_2_1_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1667   12.9531 ^ clkbuf_2_1_1_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1542   13.1073 ^ clkbuf_3_2_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1667   13.2740 ^ clkbuf_3_2_1_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1828   13.4568 ^ clkbuf_4_4_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1828   13.6396 ^ clkbuf_5_9_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.1828   13.8225 ^ clkbuf_6_19_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.4874   14.3098 ^ clkbuf_7_39_0_clk/X (sky130_fd_sc_hd__clkbuf_1)</font>
+<font color="#D3D7CF">   0.0000   14.3098 ^ _31689_/CLK (sky130_fd_sc_hd__dfxtp_4)</font>
+<font color="#D3D7CF">   0.6075   14.9174   clock reconvergence pessimism</font>
+<font color="#D3D7CF">  -0.0258   14.8916   library setup time</font>
+<font color="#D3D7CF">            14.8916   data required time</font>
+<font color="#D3D7CF">-------------------------------------------------------------</font>
+<font color="#D3D7CF">            14.8916   data required time</font>
+<font color="#D3D7CF">            -9.5479   data arrival time</font>
+<font color="#D3D7CF">-------------------------------------------------------------</font>
+<font color="#D3D7CF">             5.3437   slack (MET)</font>
+
+</pre>
+
+You can now exit the openroad shell and move on to generating power-distribution network.
+
+# Power Distribution Network
+
+PDN rails are built post CTS in openlane flows. Ensure your current DEF is pointing to CTS def.
+
+To run PDN network use command: *gen_pdn*
+
+<pre><font color="#D3D7CF">% echo ::$env(CURRENT_DEF)</font>
+<font color="#D3D7CF">::/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+<font color="#D3D7CF">% gen_pdn</font>
+</pre>
 
 
+<pre><font color="#D3D7CF">Reading DEF file: /openLANE_flow/designs/picorv32a/runs/custom_inv/results/cts/picorv32a.cts.def</font>
+<font color="#D3D7CF">Notice 0: Design: picorv32a</font>
+<font color="#D3D7CF">Notice 0:     Created 409 pins.</font>
+<font color="#D3D7CF">Notice 0:     Created 25617 components and 110290 component-terminals.</font>
+<font color="#D3D7CF">Notice 0:     Created 17803 nets and 59017 connections.</font>
+<font color="#D3D7CF">Notice 0: Finished DEF file: /openLANE_flow/designs/picorv32a/runs/custom_inv/results/cts/picorv32a.cts.def</font>
+<font color="#D3D7CF">[INFO] [PDNG-0016] Power Delivery Network Generator: Generating PDN</font>
+<font color="#D3D7CF">[INFO] [PDNG-0016]   config: /home/sunny/Desktop/OS-RTL2GDS/vsdflow/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/common_pdn.tcl</font>
+<font color="#D3D7CF">[INFO] [PDNG-0008] Design Name is picorv32a</font>
+<font color="#D3D7CF">[INFO] [PDNG-0009] Reading technology data</font>
+<font color="#D3D7CF">[INFO] [PDNG-0011] ****** INFO ******</font>
+<font color="#D3D7CF">Type: stdcell, grid</font>
+<font color="#D3D7CF">    Stdcell Rails</font>
+<font color="#D3D7CF">      Layer: met1 -  width: 0.480  pitch: 2.720  offset: 0.000 </font>
+<font color="#D3D7CF">    Straps</font>
+<font color="#D3D7CF">      Layer: met4 -  width: 1.600  pitch: 153.600  offset: 16.320 </font>
+<font color="#D3D7CF">      Layer: met5 -  width: 1.600  pitch: 153.180  offset: 16.650 </font>
+<font color="#D3D7CF">    Connect: {met1 met4} {met4 met5}</font>
+<font color="#D3D7CF">Type: macro, macro_1</font>
+<font color="#D3D7CF">    Macro orientation: R0 R180 MX MY R90 R270 MXR90 MYR90</font>
+<font color="#D3D7CF">    Straps</font>
+<font color="#D3D7CF">    Connect:  </font>
+<font color="#D3D7CF">[INFO] [PDNG-0012] **** END INFO ****</font>
+<font color="#D3D7CF">[INFO] [PDNG-0013] Inserting stdcell grid - grid</font>
+<font color="#D3D7CF">[INFO] [PDNG-0015] Writing to database</font>
+</pre>
 
 
+From here we can note that the **Stdcell Rail pitch is 2.720** Hence the custom invertor height was set to 2.72 (or its multiples), that way the power and ground rails will match with the custom designed Stdcell power/gnd rail.
 
+After the PDN step, the def file will change to **pdn.def**
+<pre><font color="#D3D7CF">% echo $::env(CURRENT_DEF)</font>
+<font color="#D3D7CF">/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+</pre>
 
+# Routing
 
+OpenLANE uses TritonRoute for doing the routing. There are 2 main ROUTING_STRATEGY that invokes different routing engine. 
 
+ROUTING_STRATEGY (0 to 3) uses Triton-13 engine (faster runtime)
 
+ROUTING_STRATEGY (14) uses Triton-14 engine (better DRCs, but more runtime)
 
+To run routing in OpenLANE use command: *run_route*
 
+<pre><font color="#D3D7CF">% echo ::$env(CURRENT_DEF)</font>
+<font color="#D3D7CF">::/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+<font color="#D3D7CF">% echo $::env(CURRENT_DEF)</font>
+<font color="#D3D7CF">/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+<font color="#D3D7CF">% run_routing </font>
 
-
-
-
-
-
-
-
-
-
+</pre>
 
 
 
