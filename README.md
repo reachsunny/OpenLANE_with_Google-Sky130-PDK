@@ -412,7 +412,13 @@ ROUTING_STRATEGY (14) uses Triton-14 engine (better DRCs, but more runtime)
 
 To run routing in OpenLANE use command: *run_route*
 
+<pre><font color="#D3D7CF">% echo ::$env(CURRENT_DEF)</font>
+<font color="#D3D7CF">::/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+<font color="#D3D7CF">% echo $::env(CURRENT_DEF)</font>
+<font color="#D3D7CF">/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+<font color="#D3D7CF">% run_routing </font>
 
+</pre>
 
 
 
