@@ -397,6 +397,10 @@ To run PDN network use command: *gen_pdn*
 
 From here we can note that the **Stdcell Rail pitch is 2.720** Hence the custom invertor height was set to 2.72 (or its multiples), that way the power and ground rails will match with the custom designed Stdcell power/gnd rail.
 
+After the PDN step, the def file will change to pdn.def
+<pre><font color="#D3D7CF">% echo $::env(CURRENT_DEF)</font>
+<font color="#D3D7CF">/openLANE_flow/designs/picorv32a/runs/custom_inv//tmp/floorplan/pdn.def</font>
+</pre>
 
 
 
