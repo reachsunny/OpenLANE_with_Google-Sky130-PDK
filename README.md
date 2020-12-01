@@ -1,6 +1,7 @@
-# Project
+![](/Images/banner.PNG)
 
-## Experimentation and Learning on fully open-sourced RTL2GDS OpenLANE flow inspired by VSD Workshop
+# Experimentation & Learning with Open-Sourced RTL2GDS OpenLANE Flow 
+## Inspired by VSD Workshop
 
 **RTL2GDS flow steps with OpenLANE**
 
@@ -359,6 +360,9 @@ You can now exit the openroad shell and move on to generating power-distribution
 
 PDN rails are built post CTS in openlane flows. Ensure your current DEF is pointing to CTS def.
 
+![Top Level PDN](/Images/PDN-topview.PNG "top-level-pdn")
+
+
 To run PDN network use command: *gen_pdn*
 
 <pre><font color="#D3D7CF">% echo ::$env(CURRENT_DEF)</font>
@@ -419,6 +423,15 @@ To run routing in OpenLANE use command: *run_route*
 <font color="#D3D7CF">% run_routing </font>
 
 </pre>
+
+
+# Acknowledgements
+
+* Kunal Gosh, Co-Founder (VSD Corp. Pvt Ltd)
+* Nickson P Jose, Teaching Assistant (VSD Corp. Pvt Ltd)
+
+
+
 
 
 
