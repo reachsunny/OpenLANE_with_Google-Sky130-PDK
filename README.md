@@ -1,6 +1,6 @@
 ![](/Images/banner.PNG)
 
-# Experimentation & Learning with OpenSource RTL2GDS OpenLANE Flow 
+# Experimentation & Learning with OpenSource RTL2GDS Tools & Automated OpenLANE Flow 
 ## Inspired by VSD Workshop
 
 **RTL2GDS flow steps with OpenLANE**
